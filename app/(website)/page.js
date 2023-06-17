@@ -1,10 +1,10 @@
 import styles from "./page.module.css";
-import { getPage } from "@/sanity/queries";
+import { getProducts } from "@/sanity/queries/getProducts";
 
 const Home = async () => {
-  const home = await getPage("home");
-  const homeIsNotEmpty = !!home?.length;
-  if (homeIsNotEmpty) console.log(home);
+  const products = await getProducts();
+  const productsIsNotEmpty = !!products?.length;
+  if (productsIsNotEmpty) console.log(products);
 
   return (
     <main className={styles.main}>
