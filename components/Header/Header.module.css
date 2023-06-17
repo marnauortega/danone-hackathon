@@ -1,0 +1,62 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: min(var(--main-padding), 30px) var(--main-padding);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  z-index: 20;
+}
+
+.logo * {
+  display: inline-block;
+}
+
+.mainTitle {
+  padding-right: 2rem;
+}
+
+.navUl {
+  display: flex;
+  gap: 1.9rem;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+/* ===========================================
+              RESPONSIVE: TABLET
+=========================================== */
+
+@media (max-width: 900px) {
+  .mobileMenu {
+    display: initial;
+  }
+
+  .nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    padding: min(var(--main-padding), 30px) var(--main-padding) 30px;
+    background-color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s ease, opacity 0.3s ease;
+  }
+
+  .navUl {
+    justify-content: space-between;
+  }
+
+  .menuOpen {
+    visibility: visible;
+    opacity: 1;
+  }
+}
