@@ -1,0 +1,8 @@
+.body {
+  margin: 0;
+}
+
+/* Remove create document button */
+.body button[aria-label="Create new document"] {
+  display: none;
+}
