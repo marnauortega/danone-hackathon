@@ -21,18 +21,12 @@ const Header = ({ simple = false }) => {
           <h1 className={styles.mainTitle}>Danone</h1>
         </Link>
       </div>
-      {/* <div className={styles.mobileMenu} onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? "close" : "menu"}
-      </div> */}
       {simple ? (
         <Link href="/onboarding">Sign In</Link>
       ) : (
         <>
           <nav className={`${styles.nav} ${menuOpen ? styles.menuOpen : ""}`}>
             <ul className={styles.navUl}>
-              <li>
-                <Link href="/">Home</Link>
-              </li>
               <li>
                 <Link href="/products">Products</Link>
               </li>
@@ -41,7 +35,10 @@ const Header = ({ simple = false }) => {
               </li>
             </ul>
           </nav>
-          <div>Search</div>
+          <div>
+            <p>Search</p>
+            <Link href="/onboarding">Sign Out</Link>
+          </div>
         </>
       )}
     </header>

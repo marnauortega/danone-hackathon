@@ -10,8 +10,14 @@ export async function getProducts() {
               }
               image {
                   asset {
-                  url
-                  altText
+                    url
+                    altText
+                    metadata {
+                        dimensions {
+                            width
+                            height
+                        }
+                    }
                   }
               }
               nutritionFacts {

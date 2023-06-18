@@ -3,15 +3,9 @@ import Header from "@/components/Header/Header";
 import Image from "next/image";
 import Link from "next/link";
 
-import { getProducts } from "@/sanity/queries/getProducts";
-
 import styles from "./page.module.css";
 
-const Home = async () => {
-  const products = await getProducts();
-  const productsIsNotEmpty = !!products?.length;
-  if (productsIsNotEmpty) console.log(products);
-
+const Home = () => {
   return (
     <>
       <Header simple={true} />
