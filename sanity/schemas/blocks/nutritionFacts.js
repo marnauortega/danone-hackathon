@@ -22,8 +22,8 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "energy",
-      title: "Energy",
+      name: "calories",
+      title: "Calories",
       type: "number",
       validation: (Rule) => Rule.required(),
     },

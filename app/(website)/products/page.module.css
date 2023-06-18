@@ -3,3 +3,12 @@
   height: 250px;
   object-fit: cover;
 }
+
+.productsWrapper {
+  display: flex;
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

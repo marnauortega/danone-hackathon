@@ -25,8 +25,10 @@ const OnBoarding = () => {
     }
 
     if (totalCalories && !dietError) {
-      setUser(totalCalories, diet);
+      setUser({ calories: totalCalories, diet: diet });
       console.log(totalCalories, diet);
+      console.log(typeof totalCalories);
+      localStorage.setItem("user", JSON.stringify({ calories: totalCalories, diet: diet }));
       router.push("/products");
     }
   };
