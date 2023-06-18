@@ -72,7 +72,7 @@ const Filters = () => {
           <input type="radio" id={`meal-${meal.id}`} name="meal-filter" />
           <label htmlFor={`meal-${meal.id}`}>
             Your ideal {meal.name}{" "}
-            {Object.entries(user)?.length > 0 && `(${(user.calories * meal.percentage) / 100} kcal)`}
+            {Object.entries(user)?.length > 0 && `(${+((user.calories * meal.percentage) / 100).toFixed(2)} kcal)`}
           </label>
         </div>
       ))}
