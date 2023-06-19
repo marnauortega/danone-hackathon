@@ -1,13 +1,14 @@
 "use client";
 import { useState, useContext } from "react";
 import { UserContext } from "@/components/Providers/UserProvider";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Header from "@/components/Header/Header";
 import calculateCalories from "@/lib/calculateCalories";
 
 import styles from "./page.module.css";
 
 const OnBoarding = () => {
+  const pathname = usePathname();
   const { setUser } = useContext(UserContext);
 
   const router = useRouter();
@@ -26,10 +27,8 @@ const OnBoarding = () => {
 
     if (totalCalories && !dietError) {
       setUser({ calories: totalCalories, diet: diet });
-      console.log(totalCalories, diet);
-      console.log(typeof totalCalories);
       localStorage.setItem("user", JSON.stringify({ calories: totalCalories, diet: diet }));
-      router.push("/products");
+      if (pathname === "/onboarding") router.push("/products");
     }
   };
 

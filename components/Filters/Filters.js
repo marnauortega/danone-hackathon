@@ -1,20 +1,28 @@
 "use client";
 
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/components/Providers/UserProvider";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 import styles from "./Filters.module.css";
 
 const Filters = () => {
-  const { user, setUser } = useContext(UserContext);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  console.log(user);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     const userJSON = localStorage.getItem("user");
 
     if (userJSON) {
-      setUser(JSON.parse(userJSON));
+      const user = JSON.parse(userJSON);
+      setUser(user);
+      setSelectedDiet(user.diet);
+      if (searchParams.get("caloriesLimit")) setSelectedCalories(searchParams.get("caloriesLimit"));
+      if (searchParams.get("diet")) setSelectedDiet(searchParams.get("diet"));
     }
   }, []);
 
@@ -22,22 +30,22 @@ const Filters = () => {
     {
       id: 1,
       name: "breakfast",
-      percentage: 30,
+      percentage: 27.5,
     },
     {
       id: 2,
-      name: "lunch",
-      percentage: 30,
+      name: "snacks",
+      percentage: 7.5,
     },
     {
       id: 3,
-      name: "dinner",
-      percentage: 30,
+      name: "lunch dessert",
+      percentage: 0.125 * 37.5,
     },
     {
       id: 4,
-      name: "breakfast",
-      percentage: 30,
+      name: "dinner dessert",
+      percentage: 0.125 * 27.5,
     },
   ];
 
@@ -64,18 +72,48 @@ const Filters = () => {
     },
   ];
 
+  const [selectedCalories, setSelectedCalories] = useState("");
+  const [selectedDiet, setSelectedDiet] = useState("");
+
   return (
     <div className={styles.filters}>
       <p>Your recommendations</p>
-      {meals.map((meal) => (
-        <div key={meal.id}>
-          <input type="radio" id={`meal-${meal.id}`} name="meal-filter" />
-          <label htmlFor={`meal-${meal.id}`}>
-            Your ideal {meal.name}{" "}
-            {Object.entries(user)?.length > 0 && `(${+((user.calories * meal.percentage) / 100).toFixed(2)} kcal)`}
-          </label>
-        </div>
-      ))}
+      {meals.map((meal) => {
+        const mealCalories = +((user.calories * meal.percentage) / 100).toFixed(2);
+        return (
+          <div key={meal.id}>
+            <input
+              type="radio"
+              id={`meal-${meal.id}`}
+              name="meal-filter"
+              value={mealCalories}
+              checked={selectedCalories == mealCalories}
+              onChange={() => {
+                setSelectedCalories(mealCalories);
+                const params = new URLSearchParams(searchParams);
+                params.set("caloriesLimit", mealCalories);
+                router.replace(`${pathname}?${params}`);
+              }}
+            />
+            <label htmlFor={`meal-${meal.id}`}>
+              Your ideal {meal.name} {Object.entries(user)?.length > 0 && `(${mealCalories}kcal)`}
+            </label>{" "}
+            {selectedCalories == mealCalories && (
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedCalories("");
+                  const params = new URLSearchParams(searchParams);
+                  params.delete("caloriesLimit");
+                  router.replace(`${pathname}?${params}`);
+                }}
+              >
+                x
+              </span>
+            )}
+          </div>
+        );
+      })}
 
       <p>Your diet</p>
       {diets.map((diet) => (
@@ -84,9 +122,29 @@ const Filters = () => {
             type="radio"
             id={`diet-${diet.id}`}
             name="diet-filter"
-            defaultChecked={Object.entries(user)?.length > 0 && diet.name === user.diet}
+            value={diet.name}
+            checked={selectedDiet === diet.name}
+            onChange={() => {
+              setSelectedDiet(diet.name);
+              const params = new URLSearchParams(searchParams);
+              params.set("diet", diet.name);
+              router.replace(`${pathname}?${params}`);
+            }}
           />
-          <label htmlFor={`diet-${diet.id}`}>{diet.title}</label>
+          <label htmlFor={`diet-${diet.id}`}>{diet.title}</label>{" "}
+          {selectedDiet === diet.name && (
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedDiet("");
+                const params = new URLSearchParams(searchParams);
+                params.delete("diet");
+                router.replace(`${pathname}?${params}`);
+              }}
+            >
+              x
+            </span>
+          )}
         </div>
       ))}
     </div>

@@ -10,6 +10,7 @@ import styles from "./page.module.css";
 
 const Products = async ({ searchParams }) => {
   const [searchEntries] = Object.entries(searchParams);
+  console.log(searchParams);
 
   let products;
   if (searchEntries) {
@@ -24,7 +25,7 @@ const Products = async ({ searchParams }) => {
     <>
       <Header />
       <div className={styles.productsWrapper}>
-        <Sortings products={products} />
+        <Sortings />
         <div className={styles.productList}>
           {products.map((product) => (
             <div>

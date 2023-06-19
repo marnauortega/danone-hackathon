@@ -1,9 +1,9 @@
 import { sanityFetch } from "./index";
 
-export async function getProducts(sortKey, order) {
+export async function getProducts(sortKey, order, caloriesLimit) {
   const query = `
-      query ($sort: [ProductSorting!]){
-          allProduct(sort: $sort){
+      query ($sort: [ProductSorting!], $where: ProductFilter){
+          allProduct(sort: $sort, where: $where){
               title,
               slug {
                   current
@@ -58,6 +58,15 @@ export async function getProducts(sortKey, order) {
       ],
     };
   }
+
+  if (caloriesLimit)
+    variables.where = {
+      nutritionFacts: {
+        calories: {
+          lte: caloriesLimit,
+        },
+      },
+    };
 
   const response = await sanityFetch({ query, variables });
   return response.body?.data?.allProduct ?? [];
