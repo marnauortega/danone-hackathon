@@ -53,17 +53,18 @@ const UserForm = () => {
 
     let totalCalories;
     if (calculatedCalories) {
-      console.log("calculate calories");
       if (!genderError && !ageError && !heightError && !weightError)
         totalCalories = calculateCalories(gender, age, height, weight);
     } else {
       if (!caloriesError) totalCalories = calories;
-      console.log("manual calories");
     }
 
     if (totalCalories && !dietError) {
-      setUser({ gender, age, height, weight, calories: totalCalories, diet });
-      localStorage.setItem("user", JSON.stringify({ gender, age, height, weight, calories: totalCalories, diet }));
+      setUser({ ...user, gender, age, height, weight, calories: totalCalories, diet });
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ ...user, gender, age, height, weight, calories: totalCalories, diet })
+      );
       if (pathname === "/onboarding") router.push("/products");
     }
   };
