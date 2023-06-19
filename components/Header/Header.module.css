@@ -18,6 +18,10 @@
   width: 200px;
 }
 
+.logo {
+  transform: translateY(5px);
+}
+
 .navUl,
 .navTools {
   display: flex;
@@ -33,33 +37,39 @@
   justify-content: flex-end;
 }
 
-/* ===========================================
-              RESPONSIVE: TABLET
-=========================================== */
+.navTools > * {
+  cursor: pointer;
+}
 
-@media (max-width: 900px) {
-  /* .mobileMenu {
-    display: initial;
-  }
+/* SEARCH MODAL */
 
-  .nav {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    padding: min(var(--main-padding), 30px) var(--main-padding) 30px;
-    background-color: white;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.3s ease, opacity 0.3s ease;
-  }
+.searchModal {
+  position: fixed;
+  top: 30px;
+  left: 25vw;
+  right: 25vw;
+  background-color: white;
+  z-index: 10;
+  border: none;
+  border-bottom: 1px solid var(--light-color);
+}
 
-  .navUl {
-    justify-content: space-between;
-  }
+.searchModal input {
+  height: 40px;
+  width: 100%;
+  border: 0;
+  outline: none;
+  color: var(--main-color);
+  font-size: 1rem;
+}
 
-  .menuOpen {
-    visibility: visible;
-    opacity: 1;
-  } */
+.searchModal input::placeholder {
+  color: var(--main-color);
+}
+
+.searchModal svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }

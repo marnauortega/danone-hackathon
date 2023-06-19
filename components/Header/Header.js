@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { GoSearch } from "react-icons/go";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -15,6 +16,8 @@ const Header = ({ simple = false }) => {
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <>
@@ -40,13 +43,23 @@ const Header = ({ simple = false }) => {
               </ul>
             </nav>
             <div className={styles.navTools}>
-              <p>Search</p>
+              {pathname === "/products" && <p onClick={() => setSearchOpen(!searchOpen)}>Search</p>}
               <Link href="/onboarding">Sign Out</Link>
             </div>
+            {searchOpen && <SearchModal />}
           </>
         )}
       </header>
     </>
+  );
+};
+
+const SearchModal = () => {
+  return (
+    <form className={styles.searchModal}>
+      <input type="text" placeholder="Type to start searching for healthy products" />
+      <GoSearch size={25} />
+    </form>
   );
 };
 

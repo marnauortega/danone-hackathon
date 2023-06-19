@@ -39,7 +39,6 @@ const UserForm = () => {
       setWeight(user.weight);
       setWeightError("");
     } else {
-      setCalculatedCalories(false);
       setCalories(user.calories);
       setCaloriesError("");
     }
