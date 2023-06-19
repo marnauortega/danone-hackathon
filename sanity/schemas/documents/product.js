@@ -38,6 +38,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "units",
+      title: "Units",
+      type: "number",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "nutritionFacts",
       title: "Nutrition Facts",
       type: "nutritionFacts",

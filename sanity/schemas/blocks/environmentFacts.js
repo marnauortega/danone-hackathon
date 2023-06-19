@@ -9,5 +9,11 @@ export default {
       type: "number",
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: "nutriscore",
+      title: "Nutriscore",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
   ],
 };
