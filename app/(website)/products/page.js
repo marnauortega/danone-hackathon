@@ -21,11 +21,13 @@ const Products = async ({ searchParams }) => {
   return (
     <>
       <Header />
-      <div className={styles.productsWrapper}>
-        <Sortings />
-        {productsIsNotEmpty && <ProductList products={products} />}
-        <Filters />
-      </div>
+      <main className="marginTop">
+        <div className={styles.productsWrapper}>
+          <Sortings />
+          {productsIsNotEmpty && <ProductList products={products} />}
+          <Filters />
+        </div>
+      </main>
     </>
   );
 };

@@ -12,8 +12,10 @@ const Profile = async () => {
   return (
     <>
       <Header />
-      <UserForm />
-      <Liked products={products} />
+      <main className="marignTop">
+        <UserForm />
+        <Liked products={products} />
+      </main>
     </>
   );
 };

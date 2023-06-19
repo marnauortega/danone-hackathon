@@ -5,7 +5,9 @@ const OnBoarding = () => {
   return (
     <>
       <Header simple={true} />
-      <UserForm />
+      <main className="marginTop">
+        <UserForm />
+      </main>
     </>
   );
 };

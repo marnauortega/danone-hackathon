@@ -1,5 +1,8 @@
 import UserProvider from "@/components/Providers/UserProvider";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Danone Hackathon",
@@ -10,7 +13,8 @@ export default function RootLayout({ children }) {
   return (
     <UserProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body className={inter.className}>{children}</body>
+        <div className="bodyBackground"></div>
       </html>
     </UserProvider>
   );

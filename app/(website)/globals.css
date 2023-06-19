@@ -1,3 +1,43 @@
+:root {
+  --main-padding: clamp(20px, 8vw, 105px);
+  --main-color: #0a135c;
+}
+
+/* RESET */
+
 body {
   margin: 0;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+ul,
+li {
+  all: unset;
+}
+
+h1,
+ul,
+p {
+  margin: 0;
+}
+
+/* GLOBAL STYLEs */
+
+body {
+  color: var(--main-color);
+}
+
+.bodyBackground {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, #f7eff1, #9cadcc);
+}
+
+.marginTop {
+  margin-top: 145px;
 }
