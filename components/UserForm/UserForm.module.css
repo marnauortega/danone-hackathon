@@ -82,6 +82,19 @@
   width: 100%;
 }
 
+.error {
+  color: red;
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 0;
+  right: 0;
+}
+
+.dietError {
+  padding-top: 1rem;
+  color: red;
+}
+
 .divider {
   padding-top: var(--card-padding);
   border-bottom: 1px solid #e1d3f4;

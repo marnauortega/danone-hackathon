@@ -16,7 +16,7 @@ const UserForm = () => {
 
   const [calculatedCalories, setCalculatedCalories] = useState(true);
   const [gender, setGender] = useState("");
-  const [genderError, setGenderError] = useState("A value must be selected");
+  const [genderError, setGenderError] = useState("A value must be set");
   const [age, setAge] = useState("");
   const [ageError, setAgeError] = useState("An age must be set");
   const [height, setHeight] = useState("");
@@ -111,16 +111,18 @@ const UserForm = () => {
   };
   const handleCalories = (e) => {
     let error = "";
-    if (e.target.value) {
-      setCaloriesError(error);
+    if (!e.target.value) {
+      error = "Calories must be set";
     }
+    setCaloriesError(error);
     setCalories(e.target.value);
   };
   const handleDiet = (e) => {
     let error = "";
-    if (e.target.value) {
-      setDietError(error);
+    if (!e.target.value) {
+      error = "A diet must be selected";
     }
+    setDietError(error);
     setDiet(e.target.value);
   };
 
@@ -146,29 +148,31 @@ const UserForm = () => {
         </div>
         {calculatedCalories ? (
           <fieldset>
-            <select value={gender} onChange={handleGender}>
-              <option value="gender" hidden>
-                Gender
-              </option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-            {submitted && genderError && <p>{genderError}</p>}
+            <div>
+              <select value={gender} onChange={handleGender}>
+                <option value="gender" hidden>
+                  Gender
+                </option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              {submitted && genderError && <p className={styles.error}>{genderError}</p>}
+            </div>
             <div>
               <input type="number" placeholder="Age" value={age} onChange={handleAge} />
               <span className={styles.unitSpan}>years</span>
+              {submitted && ageError && <p className={styles.error}>{ageError}</p>}
             </div>
-            {submitted && ageError && <p>{ageError}</p>}
             <div>
               <input type="number" placeholder="Height" value={height} onChange={handleHeight} />
               <span className={styles.unitSpan}>cm</span>
+              {submitted && heightError && <p className={styles.error}>{heightError}</p>}
             </div>
-            {submitted && heightError && <p>{heightError}</p>}
             <div>
               <input type="number" placeholder="Weight" value={weight} onChange={handleWeight} />
               <span className={styles.unitSpan}>kg</span>
+              {submitted && weightError && <p className={styles.error}>{weightError}</p>}
             </div>
-            {submitted && weightError && <p>{weightError}</p>}
           </fieldset>
         ) : (
           <div className={styles.manualCaloriesWrapper}>
@@ -179,8 +183,8 @@ const UserForm = () => {
               onChange={handleCalories}
               className={styles.manualCalories}
             />
+            {submitted && caloriesError && <p className={styles.error}>{caloriesError}</p>}
             <span className={styles.unitSpan}>kcal</span>
-            {submitted && caloriesError && <p>{caloriesError}</p>}
           </div>
         )}
       </div>
@@ -226,7 +230,7 @@ const UserForm = () => {
             Vegan
           </label>
         </fieldset>
-        {submitted && dietError && <p>{dietError}</p>}
+        {submitted && dietError && <p className={styles.dietError}>{dietError}</p>}
       </div>
       <button className={styles.submitButton}>Set my data</button>
     </form>
