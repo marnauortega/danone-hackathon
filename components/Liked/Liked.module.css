@@ -3,4 +3,9 @@
   margin-right: auto;
   width: fit-content;
   margin-bottom: 100px;
+  display: flex;
+}
+
+.emptyFavouritesText svg {
+  padding-left: 1rem;
 }
