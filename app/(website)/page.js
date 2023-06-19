@@ -14,7 +14,7 @@ import styles from "./page.module.css";
 const Home = () => {
   return (
     <>
-      <Header simple={true} />
+      <Header simple={true} home={true} />
       <main className={styles.main}>
         <section className={styles.onePlanet}>
           <motion.div
