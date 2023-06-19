@@ -1,0 +1,14 @@
+.like {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.like a {
+  stroke: var(--main-color);
+}
+
+div.fill svg {
+  fill: var(--main-color);
+  opacity: 1;
+}

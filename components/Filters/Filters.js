@@ -90,7 +90,7 @@ const Filters = () => {
               }}
             />
             <label htmlFor={`meal-${meal.id}`}>
-              Your ideal {meal.name} {Object.entries(user)?.length > 0 && `(${mealCalories}kcal)`}
+              Your ideal {meal.name} {user?.calories && `(${mealCalories}kcal)`}
             </label>{" "}
             {selectedCalories == mealCalories && (
               <span

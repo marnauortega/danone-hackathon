@@ -9,7 +9,7 @@ const Liked = ({ products }) => {
 
   const likedProducts = products.filter((product) => user?.liked?.includes(product.slug.current));
 
-  return <ProductList products={likedProducts} />;
+  return <ProductList products={likedProducts} profilePage={true} />;
 };
 
 export default Liked;

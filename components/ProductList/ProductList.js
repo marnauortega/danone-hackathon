@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import styles from "./ProductList.module.css";
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, profilePage }) => {
   return (
     <div className={styles.productList}>
       {products.map((product) => (
@@ -24,7 +24,7 @@ const ProductList = ({ products }) => {
               <p>{product.environmentFacts.emissions}g of CO2</p>
             </div>
           </Link>
-          <LikeButton slug={product.slug.current} />
+          <LikeButton slug={product.slug.current} filledDefault={profilePage} />
         </div>
       ))}
     </div>
