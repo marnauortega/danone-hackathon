@@ -12,19 +12,16 @@ const Filters = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
+
+  const [selectedCalories, setSelectedCalories] = useState("");
+  const [selectedDiet, setSelectedDiet] = useState("");
 
   useEffect(() => {
-    const userJSON = localStorage.getItem("user");
-
-    if (userJSON) {
-      const user = JSON.parse(userJSON);
-      setUser(user);
-      setSelectedDiet(user.diet);
-      if (searchParams.get("caloriesLimit")) setSelectedCalories(searchParams.get("caloriesLimit"));
-      if (searchParams.get("diet")) setSelectedDiet(searchParams.get("diet"));
-    }
-  }, []);
+    setSelectedDiet(user.diet);
+    if (searchParams.get("caloriesLimit")) setSelectedCalories(searchParams.get("caloriesLimit"));
+    if (searchParams.get("diet")) setSelectedDiet(searchParams.get("diet"));
+  }, [user]);
 
   const meals = [
     {
@@ -72,9 +69,6 @@ const Filters = () => {
     },
   ];
 
-  const [selectedCalories, setSelectedCalories] = useState("");
-  const [selectedDiet, setSelectedDiet] = useState("");
-
   return (
     <div className={styles.filters}>
       <p>Your recommendations</p>
@@ -86,7 +80,7 @@ const Filters = () => {
               type="radio"
               id={`meal-${meal.id}`}
               name="meal-filter"
-              value={mealCalories}
+              value={mealCalories || 0}
               checked={selectedCalories == mealCalories}
               onChange={() => {
                 setSelectedCalories(mealCalories);

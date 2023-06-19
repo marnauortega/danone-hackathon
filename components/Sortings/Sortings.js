@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
-import styles from "./Sotings.module.css";
+import styles from "./Sortings.module.css";
 
 const Sortings = () => {
   const router = useRouter();
