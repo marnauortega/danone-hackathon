@@ -4,30 +4,19 @@
   left: 0;
   width: 100%;
   background-color: white;
-  padding: min(var(--main-padding), 30px) var(--main-padding);
+  padding: 24px var(--main-padding);
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-transform: uppercase;
   z-index: 20;
+  font-weight: 600;
 }
 
-.logo * {
-  display: inline-block;
-}
-
-.mainTitle {
-  padding-right: 2rem;
-}
-
-.navUl {
+.navUl,
+.navTools {
   display: flex;
-  gap: 1.9rem;
-}
-
-.mobileMenu {
-  display: none;
+  gap: 4.55rem;
 }
 
 /* ===========================================
@@ -35,7 +24,7 @@
 =========================================== */
 
 @media (max-width: 900px) {
-  .mobileMenu {
+  /* .mobileMenu {
     display: initial;
   }
 
@@ -58,5 +47,5 @@
   .menuOpen {
     visibility: visible;
     opacity: 1;
-  }
+  } */
 }
