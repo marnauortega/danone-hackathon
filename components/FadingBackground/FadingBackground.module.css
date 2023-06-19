@@ -1,0 +1,10 @@
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: black;
+}
+
+.light {
+  background: linear-gradient(to bottom, white 10%, #f7eff1 50%, #aebdd9);
+}
