@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import { GoSearch } from "react-icons/go";
 import { motion, useScroll } from "framer-motion";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -60,10 +60,34 @@ const Header = ({ simple = false, home = false }) => {
 };
 
 const SearchModal = () => {
+  const [search, setSearch] = useState("");
+
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams(searchParams);
+    if (search) {
+      params.set("search", search);
+    } else {
+      params.delete("search");
+    }
+    router.replace(`${pathname}?${params}`);
+  };
+
   return (
-    <form className={styles.searchModal}>
-      <input type="text" placeholder="Type to start searching for healthy products" />
-      <GoSearch size={25} />
+    <form className={styles.searchModal} onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Type to start searching for healthy products"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <button>
+        <GoSearch size={25} />
+      </button>
     </form>
   );
 };

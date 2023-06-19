@@ -40,70 +40,57 @@ export async function getProducts(params = {}) {
   const caloriesSort = params["calories"];
 
   if (caloriesSort) {
-    variables = {
-      sort: [
-        {
-          nutritionFacts: {
-            calories: caloriesSort,
-          },
+    variables.sort = [
+      {
+        nutritionFacts: {
+          calories: caloriesSort,
         },
-      ],
-    };
+      },
+    ];
   }
 
   const emissionsSort = params["emissions"];
 
   if (emissionsSort) {
-    variables = {
-      sort: [
-        {
-          environmentFacts: {
-            emissions: emissionsSort,
-          },
+    variables.sort = [
+      {
+        environmentFacts: {
+          emissions: emissionsSort,
         },
-      ],
-    };
+      },
+    ];
   }
 
   const caloriesFilter = params["caloriesLimit"];
-  const dietFilter = params["diet"];
 
   if (caloriesFilter) {
-    variables.where = {
-      nutritionFacts: {
-        calories: {
-          lte: parseInt(caloriesFilter),
-        },
+    if (!variables.where) variables.where = {};
+    variables.where.nutritionFacts = {
+      calories: {
+        lte: parseInt(caloriesFilter),
       },
     };
   }
+
+  const dietFilter = params["diet"];
 
   if (dietFilter) {
-    variables.where = {
-      environmentFacts: {
-        diet: {
-          [dietFilter]: {
-            eq: true,
-          },
+    if (!variables.where) variables.where = {};
+    variables.where.environmentFacts = {
+      diet: {
+        [dietFilter]: {
+          eq: true,
         },
       },
     };
   }
 
-  if (caloriesFilter && dietFilter) {
-    variables.where = {
-      nutritionFacts: {
-        calories: {
-          lte: parseInt(caloriesFilter),
-        },
-      },
-      environmentFacts: {
-        diet: {
-          [dietFilter]: {
-            eq: true,
-          },
-        },
-      },
+  const searchFilter = params["search"];
+
+  if (searchFilter) {
+    if (!variables.where) variables.where = {};
+    variables.where.title = {
+      matches: searchFilter,
     };
   }
 
