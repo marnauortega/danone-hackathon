@@ -41,7 +41,7 @@ const Sortings = () => {
           }
           router.replace(`${pathname}?${params}`);
         }}
-        className={sorting === "calories" ? styles.active : ""}
+        className={`${sorting === "calories" ? styles.active : ""} ${styles.button}`}
       >
         Sort by calories {caloriesAsc ? "(low to high)" : "(high to low)"}
         {sorting === "calories" && (
@@ -72,7 +72,7 @@ const Sortings = () => {
           }
           router.replace(`${pathname}?${params}`);
         }}
-        className={sorting === "emissions" ? styles.active : ""}
+        className={`${sorting === "emissions" ? styles.active : ""} ${styles.button}`}
       >
         Sort by carbon emissions {emissionsAsc ? "(low to high)" : "(high to low)"}
         {sorting === "emissions" && (

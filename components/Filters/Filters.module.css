@@ -1,7 +1,11 @@
 .filters {
   position: sticky;
-  top: 100px;
+  top: calc(102px + var(--main-gap));
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  background: white;
+  border-radius: 15px;
+  padding: var(--card-padding);
 }

@@ -1,3 +1,21 @@
+.sortings {
+  margin: 0 var(--main-padding);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--main-gap);
+}
+
+.button {
+  flex: 1;
+  height: 70px;
+  border-radius: 15px;
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+  color: var(--main-color);
+  font-size: 1rem;
+}
+
 .active {
   font-weight: 800;
 }

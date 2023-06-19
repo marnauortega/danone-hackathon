@@ -9,7 +9,7 @@ const ProductList = ({ products }) => {
   return (
     <div className={styles.productList}>
       {products.map((product) => (
-        <>
+        <div className={styles.productWrapper}>
           <Link href={product.slug.current}>
             <Image
               className={styles.productImage}
@@ -18,12 +18,14 @@ const ProductList = ({ products }) => {
               width={product.image.asset.metadata.dimensions.width}
               height={product.image.asset.metadata.dimensions.height}
             />
-            <p>{product.title}</p>
-            <p>{product.nutritionFacts.calories} Kcal</p>
-            <p>{product.environmentFacts.emissions}g of CO2</p>
+            <div className={styles.productDetails}>
+              <p>{product.title}</p>
+              <p>{product.nutritionFacts.calories} Kcal</p>
+              <p>{product.environmentFacts.emissions}g of CO2</p>
+            </div>
           </Link>
           <LikeButton slug={product.slug.current} />
-        </>
+        </div>
       ))}
     </div>
   );

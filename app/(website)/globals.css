@@ -1,6 +1,8 @@
 :root {
   --main-padding: clamp(20px, 8vw, 105px);
+  --card-padding: 3.25rem;
   --main-color: #0a135c;
+  --main-gap: 2.815rem;
 }
 
 /* RESET */

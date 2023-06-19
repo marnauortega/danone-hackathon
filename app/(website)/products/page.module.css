@@ -1,3 +1,6 @@
 .productsWrapper {
+  margin: var(--main-gap) var(--main-padding) 0;
   display: flex;
+  justify-content: flex-end;
+  gap: var(--main-gap);
 }
