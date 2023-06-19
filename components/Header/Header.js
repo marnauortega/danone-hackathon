@@ -20,9 +20,7 @@ const Header = ({ simple = false }) => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <Link href="/">
-          <h1 className={styles.mainTitle}>
-            <Image src={"/danoneLogo.png"} width={121} height={46} alt="danone logo" />
-          </h1>
+          <Image className={styles.mainTitle} src={"/danoneLogo.png"} width={121} height={46} alt="danone logo" />
         </Link>
       </div>
       {simple ? (

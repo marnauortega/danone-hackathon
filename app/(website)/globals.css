@@ -48,6 +48,14 @@ body {
 
 /* FONTS */
 
+h1 {
+  font-size: 45px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  padding-bottom: 3rem;
+}
+
 h2 {
   font-size: 28px;
   font-weight: bold;

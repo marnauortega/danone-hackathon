@@ -3,6 +3,7 @@
   border-radius: 15px;
   padding: var(--card-padding);
   max-width: 860px;
+  box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
 }

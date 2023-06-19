@@ -12,9 +12,14 @@ const Profile = async () => {
   return (
     <>
       <Header />
-      <main className="marignTop">
+      <main className="marginTop">
+        <h1>Edit your data</h1>
         <UserForm />
-        <Liked products={products} />
+        <div className={styles.spacer}></div>
+        <h1>Your favourite products</h1>
+        <div className={styles.productsWrapper}>
+          <Liked products={products} />
+        </div>
       </main>
     </>
   );

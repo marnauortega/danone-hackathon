@@ -1,0 +1,9 @@
+.spacer {
+  height: 100px;
+}
+
+.productsWrapper {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
