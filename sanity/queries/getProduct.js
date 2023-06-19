@@ -37,13 +37,12 @@ export async function getProduct(inputSlug) {
     where: {
       slug: {
         current: {
-          eq: "danone-eco-natural-x4123",
+          eq: inputSlug,
         },
       },
     },
   };
 
   const response = await sanityFetch({ query, variables });
-  console.log(response.body.data.allProduct);
   return response.body?.data?.allProduct ?? [];
 }
