@@ -1,6 +1,8 @@
 import { sanityFetch } from "./index";
 
-export async function getProducts(sortKey, order, caloriesLimit) {
+export async function getProducts(params = {}) {
+  console.log("this is params", params);
+
   const query = `
       query ($sort: [ProductSorting!], $where: ProductFilter){
           allProduct(sort: $sort, where: $where){
@@ -33,40 +35,77 @@ export async function getProducts(sortKey, order, caloriesLimit) {
           }
       }`;
 
-  let variables;
+  let variables = {};
 
-  if (sortKey === "calories") {
+  const caloriesSort = params["calories"];
+
+  if (caloriesSort) {
     variables = {
       sort: [
         {
           nutritionFacts: {
-            calories: order,
+            calories: caloriesSort,
           },
         },
       ],
     };
   }
 
-  if (sortKey === "emissions") {
+  const emissionsSort = params["emissions"];
+
+  if (emissionsSort) {
     variables = {
       sort: [
         {
           environmentFacts: {
-            emissions: order,
+            emissions: emissionsSort,
           },
         },
       ],
     };
   }
 
-  if (caloriesLimit)
+  const caloriesFilter = params["caloriesLimit"];
+  const dietFilter = params["diet"];
+
+  if (caloriesFilter) {
     variables.where = {
       nutritionFacts: {
         calories: {
-          lte: caloriesLimit,
+          lte: parseInt(caloriesFilter),
         },
       },
     };
+  }
+
+  if (dietFilter) {
+    variables.where = {
+      environmentFacts: {
+        diet: {
+          [dietFilter]: {
+            eq: true,
+          },
+        },
+      },
+    };
+  }
+
+  if (caloriesFilter && dietFilter) {
+    variables.where = {
+      nutritionFacts: {
+        calories: {
+          lte: parseInt(caloriesFilter),
+        },
+      },
+      environmentFacts: {
+        diet: {
+          [dietFilter]: {
+            eq: true,
+          },
+        },
+      },
+    };
+  }
 
   const response = await sanityFetch({ query, variables });
   return response.body?.data?.allProduct ?? [];

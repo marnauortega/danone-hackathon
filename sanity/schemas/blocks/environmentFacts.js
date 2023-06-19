@@ -15,5 +15,11 @@ export default {
       type: "string",
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: "diet",
+      title: "Diet",
+      type: "diet",
+      validation: (Rule) => Rule.required(),
+    },
   ],
 };

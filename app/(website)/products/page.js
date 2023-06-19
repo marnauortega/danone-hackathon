@@ -11,11 +11,12 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const Products = async ({ searchParams }) => {
-  const [searchEntries] = Object.entries(searchParams);
+  const searchEntries = Object.entries(searchParams);
+  console.log("params", searchParams);
 
   let products;
-  if (searchEntries) {
-    products = await getProducts(...searchEntries);
+  if (searchEntries?.length > 0) {
+    products = await getProducts(searchParams);
   } else {
     products = await getProducts();
   }
