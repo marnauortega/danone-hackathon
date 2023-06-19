@@ -15,7 +15,7 @@
 
 .logo,
 .navTools {
-  width: 200px;
+  width: 250px;
 }
 
 .logo {
@@ -29,8 +29,12 @@
 }
 
 .navUl li {
-  width: 70px;
-  text-align: center;
+  width: 90px;
+  text-transform: uppercase;
+}
+
+.navUl li:first-child {
+  text-align: right;
 }
 
 .navTools {
@@ -39,6 +43,7 @@
 
 .navTools > * {
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 /* SEARCH MODAL */

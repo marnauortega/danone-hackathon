@@ -111,7 +111,7 @@ const Filters = () => {
         );
       })}
 
-      <div class={styles.verticalSpacer}></div>
+      <div className={styles.verticalSpacer}></div>
 
       <h3 className={styles.filterTitle}>Your diet</h3>
       {diets.map((diet) => (
