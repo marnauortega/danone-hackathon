@@ -8,6 +8,7 @@ import { getProducts } from "@/sanity/queries/getProducts";
 import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const Products = async ({ searchParams }) => {
   const [searchEntries] = Object.entries(searchParams);
