@@ -21,7 +21,7 @@ const Products = async ({ searchParams }) => {
   return (
     <>
       <Header />
-      <main className="marginTop">
+      <main className="marginTop marginBottom">
         <Sortings />
         <div className={styles.productsWrapper}>
           {productsIsNotEmpty && <ProductList products={products} />}

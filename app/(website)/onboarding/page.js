@@ -5,7 +5,7 @@ const OnBoarding = () => {
   return (
     <>
       <Header simple={true} />
-      <main className="marginTop">
+      <main className="marginTop marginBottom">
         <UserForm />
       </main>
     </>

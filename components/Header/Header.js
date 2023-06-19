@@ -17,33 +17,36 @@ const Header = ({ simple = false }) => {
   }, [pathname]);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.logo}>
-        <Link href="/">
-          <Image className={styles.mainTitle} src={"/danoneLogo.png"} width={121} height={46} alt="danone logo" />
-        </Link>
-      </div>
-      {simple ? (
-        <Link href="/onboarding">Sign In</Link>
-      ) : (
-        <>
-          <nav className={`${styles.nav} ${menuOpen ? styles.menuOpen : ""}`}>
-            <ul className={styles.navUl}>
-              <li>
-                <Link href="/products">Products</Link>
-              </li>
-              <li>
-                <Link href="/profile">Profile</Link>
-              </li>
-            </ul>
-          </nav>
-          <div className={styles.navTools}>
-            <p>Search</p>
-            <Link href="/onboarding">Sign Out</Link>
-          </div>
-        </>
-      )}
-    </header>
+    <>
+      <div></div>
+      <header className={styles.header}>
+        <div className={styles.logo}>
+          <Link href="/">
+            <Image className={styles.mainTitle} src={"/danoneLogo.png"} width={121} height={46} alt="danone logo" />
+          </Link>
+        </div>
+        {simple ? (
+          <Link href="/onboarding">Sign In</Link>
+        ) : (
+          <>
+            <nav className={`${styles.nav} ${menuOpen ? styles.menuOpen : ""}`}>
+              <ul className={styles.navUl}>
+                <li>
+                  <Link href="/products">Products</Link>
+                </li>
+                <li>
+                  <Link href="/profile">Profile</Link>
+                </li>
+              </ul>
+            </nav>
+            <div className={styles.navTools}>
+              <p>Search</p>
+              <Link href="/onboarding">Sign Out</Link>
+            </div>
+          </>
+        )}
+      </header>
+    </>
   );
 };
 

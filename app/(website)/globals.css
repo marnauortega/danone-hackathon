@@ -46,6 +46,10 @@ body {
   margin-top: 100px;
 }
 
+.marginTop {
+  margin-bottom: 100px;
+}
+
 /* FONTS */
 
 h1 {
