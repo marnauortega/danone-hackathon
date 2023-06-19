@@ -2,6 +2,8 @@
   --main-padding: clamp(20px, 8vw, 105px);
   --card-padding: 3.25rem;
   --main-color: #0a135c;
+  --secondary-color: #405bb2;
+  --light-color: #eeeaee;
   --main-gap: 2.815rem;
 }
 
@@ -41,5 +43,16 @@ body {
 }
 
 .marginTop {
-  margin-top: 145px;
+  margin-top: 100px;
+}
+
+/* FONTS */
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1rem;
 }

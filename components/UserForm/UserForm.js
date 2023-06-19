@@ -125,14 +125,22 @@ const UserForm = () => {
   };
 
   return (
-    <form onSubmit={handleForm}>
-      <div className="calories">
+    <form onSubmit={handleForm} className={styles.form}>
+      <div className={styles.calories}>
         <h2>Set your maximum calory limit here!</h2>
-        <div className="tabs">
-          <button type="button" onClick={() => setCalculatedCalories(true)}>
+        <div className={styles.tabs}>
+          <button
+            type="button"
+            className={calculatedCalories ? styles.active : ""}
+            onClick={() => setCalculatedCalories(true)}
+          >
             Calculate calory intake
           </button>
-          <button type="button" onClick={() => setCalculatedCalories(false)}>
+          <button
+            type="button"
+            className={!calculatedCalories ? styles.active : ""}
+            onClick={() => setCalculatedCalories(false)}
+          >
             Set calory limit manually
           </button>
         </div>
@@ -146,49 +154,81 @@ const UserForm = () => {
               <option value="female">Female</option>
             </select>
             {submitted && genderError && <p>{genderError}</p>}
-            <input type="number" placeholder="age" value={age} onChange={handleAge} />
+            <div>
+              <input type="number" placeholder="Age" value={age} onChange={handleAge} />
+              <span className={styles.unitSpan}>years</span>
+            </div>
             {submitted && ageError && <p>{ageError}</p>}
-            <input type="number" placeholder="height" value={height} onChange={handleHeight} />
+            <div>
+              <input type="number" placeholder="Height" value={height} onChange={handleHeight} />
+              <span className={styles.unitSpan}>cm</span>
+            </div>
             {submitted && heightError && <p>{heightError}</p>}
-            <input type="number" placeholder="weight" value={weight} onChange={handleWeight} />
+            <div>
+              <input type="number" placeholder="Weight" value={weight} onChange={handleWeight} />
+              <span className={styles.unitSpan}>kg</span>
+            </div>
             {submitted && weightError && <p>{weightError}</p>}
           </fieldset>
         ) : (
-          <>
-            <input type="number" placeholder="calories" value={calories} onChange={handleCalories} />
+          <div className={styles.manualCaloriesWrapper}>
+            <input
+              type="number"
+              placeholder="calories"
+              value={calories}
+              onChange={handleCalories}
+              className={styles.manualCalories}
+            />
+            <span className={styles.unitSpan}>kcal</span>
             {submitted && caloriesError && <p>{caloriesError}</p>}
-          </>
+          </div>
         )}
       </div>
-      <div className="diet">
+      <div className={styles.divider}></div>
+      <div className={styles.diet}>
         <h2>Set your type of diet</h2>
         <fieldset>
-          <label>
-            <input
-              type="radio"
-              name="diet"
-              value="avidMeatEater"
-              checked={diet === "avidMeatEater"}
-              onChange={handleDiet}
-            />
+          <input
+            type="radio"
+            id="avidMeatEater"
+            name="diet"
+            value="avidMeatEater"
+            checked={diet === "avidMeatEater"}
+            onChange={handleDiet}
+          />
+          <label htmlFor="avidMeatEater" className={diet === "avidMeatEater" ? styles.activeDiet : ""}>
             Avid meat eater
           </label>
-          <label>
-            <input type="radio" name="diet" value="omnivore" checked={diet === "omnivore"} onChange={handleDiet} />
+          <input
+            id="omnivore"
+            type="radio"
+            name="diet"
+            value="omnivore"
+            checked={diet === "omnivore"}
+            onChange={handleDiet}
+          />
+          <label htmlFor="omnivore" className={diet === "omnivore" ? styles.activeDiet : ""}>
             Omnivore
           </label>
-          <label>
-            <input type="radio" name="diet" value="vegetarian" checked={diet === "vegetarian"} onChange={handleDiet} />
+          <input
+            id="vegetarian"
+            type="radio"
+            name="diet"
+            value="vegetarian"
+            checked={diet === "vegetarian"}
+            onChange={handleDiet}
+          />
+          <label htmlFor="vegetarian" className={diet === "vegetarian" ? styles.activeDiet : ""}>
             Vegetarian
           </label>
-          <label>
-            <input type="radio" name="diet" value="vegan" checked={diet === "vegan"} onChange={handleDiet} />
+          <input id="vegan" type="radio" name="diet" value="vegan" checked={diet === "vegan"} onChange={handleDiet} />
+          <label htmlFor="vegan" className={diet === "vegan" ? styles.activeDiet : ""}>
             Vegan
           </label>
         </fieldset>
         {submitted && dietError && <p>{dietError}</p>}
       </div>
-      <button>Set my data</button>
+      <button className={styles.submitButton}>Set my data</button>
     </form>
   );
 };

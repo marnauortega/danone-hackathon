@@ -1,0 +1,127 @@
+.form {
+  background: white;
+  border-radius: 15px;
+  padding: var(--card-padding);
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CALORIES */
+
+.tabs {
+  width: 100%;
+  display: flex;
+  gap: calc(var(--card-padding) / 2);
+  border: 1px solid var(--light-color);
+  border-radius: 15px;
+  margin-bottom: calc(var(--main-gap) / 2);
+}
+
+.tabs button {
+  flex: 1;
+  border-radius: 15px;
+  border: none;
+  height: 70px;
+  font-size: 1rem;
+  color: var(--main-color);
+  background: transparent;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background: var(--light-color);
+}
+
+.form fieldset {
+  border: 0;
+  padding: 0;
+  display: flex;
+  gap: calc(var(--main-gap) / 2);
+}
+
+.form fieldset > *,
+.manualCaloriesWrapper {
+  flex: 1;
+  position: relative;
+}
+
+.unitSpan {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+}
+
+.calories input,
+.calories select {
+  text-indent: 1rem;
+}
+
+.calories input,
+.calories select,
+.form fieldset label {
+  height: 60px;
+  width: 100%;
+  border: 2px solid transparent;
+  color: var(--main-color);
+  border-radius: 12px;
+  background-color: var(--light-color);
+  font-size: 0.9rem;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.calories select {
+  border-right: 1rem solid transparent;
+}
+
+.manualCalories {
+  width: 100%;
+}
+
+.divider {
+  padding-top: var(--card-padding);
+  border-bottom: 1px solid #e1d3f4;
+  display: grid;
+  margin-left: calc(var(--card-padding) * -1);
+  margin-right: calc(var(--card-padding) * -1);
+}
+
+/* DIET */
+
+.diet {
+  padding-top: calc(var(--card-padding) / 2);
+}
+
+.form fieldset label {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form fieldset .activeDiet {
+  border: 2px solid var(--secondary-color);
+}
+
+.diet input {
+  display: none;
+}
+
+.submitButton {
+  margin-top: calc(var(--main-gap) / 2);
+  height: 60px;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 12px;
+  border: 0;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+}
