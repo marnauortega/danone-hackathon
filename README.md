@@ -1,5 +1,3 @@
-![DDROP App](/public/screenshot.webp)
-
 <br/>
 
 A landing page and an app to calculate our dietary and environmental impact and to showcase Danone products. Built with [Next.js](https://nextjs.org/) for the Danone Hackathon organized by Nuwe.
@@ -12,7 +10,7 @@ A landing page and an app to calculate our dietary and environmental impact and 
 
 <br/>
 
-I've used the new [App router](https://nextjs.org/docs/app/building-your-application/routing) from Next.js 13, as well as the new [route handlers](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) to create API endpoints. Other tools I've used are [Next Auth](https://next-auth.js.org/) for google authentication, [Google Drive API](https://developers.google.com/drive/api/guides/about-sdk), and [Framer Motion](https://www.framer.com/motion/?utm_source=google&utm_medium=adwords&utm_campaign=TW-WW-All-GS-UA-Traffic-20190326-Brand.Bmm_&gad=1&gclid=Cj0KCQjwsIejBhDOARIsANYqkD2_HzOAPDZ4CSmgJ5CL82OktAHY3lZclR1sU3QhpFOXEWKNMLADlfMaAgUnEALw_wcB) for animations. The deployment was done with [Vercel](https://vercel.com).
+I've used the new [App router](https://nextjs.org/docs/app/building-your-application/routing) from Next.js 13. Other tools I've used are [Sanity](https://www.sanity.io/) as a headless CMS, and [Framer Motion](https://www.framer.com/motion/) and [Lenis](https://lenis.studiofreight.com/) for animations. The deployment was done with [Vercel](https://vercel.com).
 
 <br/><br/>
 
@@ -29,8 +27,6 @@ I've used the new [App router](https://nextjs.org/docs/app/building-your-applica
 <br/>
 
 - A Product page with sophisticated sorting and filtering.
-
-![Responsive](/public/responsive.webp)
 
 <br/>
 
