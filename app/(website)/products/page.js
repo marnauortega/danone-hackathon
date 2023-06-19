@@ -1,5 +1,6 @@
 import Header from "@/components/Header/Header";
 import Image from "next/image";
+import Link from "next/link";
 
 import { getProducts } from "@/sanity/queries/getProducts";
 
@@ -19,7 +20,6 @@ const Products = async ({ searchParams }) => {
     products = await getProducts();
   }
   const productsIsNotEmpty = !!products?.length;
-  // if (productsIsNotEmpty)
 
   return (
     <>
@@ -27,20 +27,21 @@ const Products = async ({ searchParams }) => {
       <div className={styles.productsWrapper}>
         <Sortings />
         <div className={styles.productList}>
-          {products.map((product) => (
-            <div>
-              <Image
-                className={styles.productImage}
-                src={product.image.asset.url}
-                alt={product.image.asset.altText ?? ""}
-                width={product.image.asset.metadata.dimensions.width}
-                height={product.image.asset.metadata.dimensions.height}
-              />
-              <p>{product.title}</p>
-              <p>{product.nutritionFacts.calories} Kcal</p>
-              <p>{product.environmentFacts.emissions}g of CO2</p>
-            </div>
-          ))}
+          {productsIsNotEmpty &&
+            products.map((product) => (
+              <Link href={product.slug.current}>
+                <Image
+                  className={styles.productImage}
+                  src={product.image.asset.url}
+                  alt={product.image.asset.altText ?? ""}
+                  width={product.image.asset.metadata.dimensions.width}
+                  height={product.image.asset.metadata.dimensions.height}
+                />
+                <p>{product.title}</p>
+                <p>{product.nutritionFacts.calories} Kcal</p>
+                <p>{product.environmentFacts.emissions}g of CO2</p>
+              </Link>
+            ))}
         </div>
         <Filters />
       </div>
