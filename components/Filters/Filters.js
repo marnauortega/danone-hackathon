@@ -3,7 +3,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/components/Providers/UserProvider";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { FiX } from "react-icons/fi";
 
 import styles from "./Filters.module.css";
 
@@ -71,11 +71,14 @@ const Filters = () => {
 
   return (
     <div className={styles.filters}>
-      <p>Your recommendations</p>
+      <h3 className={styles.filterTitle}>Your recommendations</h3>
       {meals.map((meal) => {
         const mealCalories = +((user.calories * meal.percentage) / 100).toFixed(2);
         return (
-          <div key={meal.id}>
+          <div
+            key={meal.id}
+            className={`${styles.inputWrapper} ${selectedCalories == mealCalories ? styles.active : ""}`}
+          >
             <input
               type="radio"
               id={`meal-${meal.id}`}
@@ -93,7 +96,8 @@ const Filters = () => {
               Your ideal {meal.name} {user?.calories && `(${mealCalories}kcal)`}
             </label>{" "}
             {selectedCalories == mealCalories && (
-              <span
+              <FiX
+                size={18}
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedCalories("");
@@ -101,17 +105,17 @@ const Filters = () => {
                   params.delete("caloriesLimit");
                   router.replace(`${pathname}?${params}`);
                 }}
-              >
-                x
-              </span>
+              />
             )}
           </div>
         );
       })}
 
-      <p>Your diet</p>
+      <div class={styles.verticalSpacer}></div>
+
+      <h3 className={styles.filterTitle}>Your diet</h3>
       {diets.map((diet) => (
-        <div key={diet.id}>
+        <div key={diet.id} className={`${styles.inputWrapper} ${selectedDiet === diet.name ? styles.active : ""}`}>
           <input
             type="radio"
             id={`diet-${diet.id}`}
@@ -127,7 +131,8 @@ const Filters = () => {
           />
           <label htmlFor={`diet-${diet.id}`}>{diet.title}</label>{" "}
           {selectedDiet === diet.name && (
-            <span
+            <FiX
+              size={18}
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedDiet("");
@@ -135,9 +140,7 @@ const Filters = () => {
                 params.delete("diet");
                 router.replace(`${pathname}?${params}`);
               }}
-            >
-              x
-            </span>
+            />
           )}
         </div>
       ))}

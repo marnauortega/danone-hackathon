@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { FiX } from "react-icons/fi";
 
 import styles from "./Sortings.module.css";
 
@@ -45,7 +46,8 @@ const Sortings = () => {
       >
         Sort by calories {caloriesAsc ? "(low to high)" : "(high to low)"}
         {sorting === "calories" && (
-          <span
+          <FiX
+            size={18}
             onClick={(e) => {
               e.stopPropagation();
               setSorting("");
@@ -53,9 +55,7 @@ const Sortings = () => {
               params.delete("calories");
               router.replace(`${pathname}?${params}`);
             }}
-          >
-            x
-          </span>
+          />
         )}
       </button>
       <button
@@ -76,7 +76,8 @@ const Sortings = () => {
       >
         Sort by carbon emissions {emissionsAsc ? "(low to high)" : "(high to low)"}
         {sorting === "emissions" && (
-          <span
+          <FiX
+            size={18}
             onClick={(e) => {
               e.stopPropagation();
               setSorting("");
@@ -84,9 +85,7 @@ const Sortings = () => {
               params.delete("emissions");
               router.replace(`${pathname}?${params}`);
             }}
-          >
-            x
-          </span>
+          />
         )}
       </button>
     </div>

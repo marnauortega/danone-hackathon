@@ -14,8 +14,18 @@
   cursor: pointer;
   color: var(--main-color);
   font-size: 1rem;
+  border: 2px solid transparent;
+  position: relative;
+  transition: border-color 0.2s ease;
 }
 
 .active {
-  font-weight: 800;
+  border: 2px solid var(--secondary-color);
+}
+
+.button svg {
+  position: absolute;
+  right: calc(var(--card-padding) / 2);
+  top: 50%;
+  transform: translateY(-50%);
 }

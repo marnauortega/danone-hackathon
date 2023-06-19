@@ -2,10 +2,46 @@
   position: sticky;
   top: calc(102px + var(--main-gap));
   height: 100%;
+  width: 34ch;
   display: flex;
   flex-direction: column;
-
   background: white;
   border-radius: 15px;
   padding: var(--card-padding);
+}
+
+.filterTitle {
+  margin: 0 0 25px;
+}
+
+.verticalSpacer {
+  height: 30px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-left: -10px;
+  border-radius: 10px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.inputWrapper label {
+  cursor: pointer;
+  padding-right: 2rem;
+}
+
+.active {
+  background-color: var(--light-color);
+}
+
+.inputWrapper input {
+  display: none;
+}
+
+.inputWrapper svg {
+  cursor: pointer;
 }
