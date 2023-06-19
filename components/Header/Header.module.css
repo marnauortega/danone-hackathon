@@ -13,10 +13,24 @@
   font-weight: 600;
 }
 
+.logo,
+.navTools {
+  width: 200px;
+}
+
 .navUl,
 .navTools {
   display: flex;
   gap: 4.55rem;
+}
+
+.navUl li {
+  width: 70px;
+  text-align: center;
+}
+
+.navTools {
+  justify-content: flex-end;
 }
 
 /* ===========================================
