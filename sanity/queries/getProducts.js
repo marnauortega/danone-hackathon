@@ -1,8 +1,6 @@
 import { sanityFetch } from "./index";
 
 export async function getProducts(params = {}) {
-  console.log("this is params", params);
-
   const query = `
       query ($sort: [ProductSorting!], $where: ProductFilter){
           allProduct(sort: $sort, where: $where){

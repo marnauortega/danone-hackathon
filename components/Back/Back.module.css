@@ -1,0 +1,19 @@
+.back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: absolute;
+  left: var(--main-padding);
+  border: 0;
+  background-color: unset;
+  font-size: 1.2rem;
+  top: 3rem;
+  padding: 1rem 1.4rem 1rem 1rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.back:hover {
+  background-color: var(--light-color);
+}

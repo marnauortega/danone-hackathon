@@ -1,0 +1,76 @@
+.main {
+  display: flex;
+  min-height: calc(100vh - 100px);
+}
+
+.basicInfo,
+.chart {
+  padding: 100px 0;
+  flex: 1;
+}
+
+.basicInfo {
+  background: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+}
+
+.basicInfo img {
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+}
+
+.basicInfo p {
+  max-width: 400px;
+}
+
+.chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: white;
+  padding: var(--card-padding);
+  border-radius: 15px;
+  max-width: 400px;
+}
+
+.data {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+.data:first-of-type {
+  margin-top: 0;
+}
+
+.card dt {
+  font-weight: 600;
+}
+
+.card dd {
+  text-align: right;
+}
+
+.ballWrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 1000px;
+  background-color: var(--main-color);
+}

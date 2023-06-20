@@ -8,6 +8,8 @@ export async function getProduct(inputSlug) {
               slug {
                   current
               }
+              description
+              units
               image {
                   asset {
                     url
