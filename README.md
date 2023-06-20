@@ -2,7 +2,7 @@
 
 <br/>
 
-A landing page and an app to calculate our dietary and environmental impact and to showcase Danone products. Built with [Next.js](https://nextjs.org/) for the Danone Hackathon organized by Nuwe.
+A landing page and an app to calculate our dietary and environmental impact and to showcase Danone products. Built with [Next.js](https://nextjs.org/) for the Danone Hackathon organized by [Nuwe](https://nuwe.io/).
 
 ## [Live site](https://danone-hackathon.vercel.app/)
 
@@ -58,7 +58,7 @@ I've used the new [App router](https://nextjs.org/docs/app/building-your-applica
 
 The code has been checked with SonarCloud and it passed all tests:
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=marnauortega_drop-zone)](https://sonarcloud.io/summary/new_code?id=marnauortega_drop-zone)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=marnauortega_danone-hackathon)](https://sonarcloud.io/summary/new_code?id=marnauortega_danone-hackathon)
 
 <br/><br/>
 
