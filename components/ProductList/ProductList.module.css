@@ -29,6 +29,20 @@
   margin-top: auto;
 }
 
+.productDetails p {
+  margin-top: 12px;
+}
+
+.productTitle {
+  font-size: 18;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.productData {
+  font-size: 12px;
+}
+
 /* LIKE BUTTON */
 
 .productWrapper svg {

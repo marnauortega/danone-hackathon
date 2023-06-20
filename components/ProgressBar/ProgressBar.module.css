@@ -1,0 +1,13 @@
+.bar {
+  height: 2px;
+  width: 100%;
+  background-color: var(--light-color);
+  margin-top: 8px;
+}
+
+.progress {
+  background-color: var(--main-color);
+  height: 2px;
+  width: 100%;
+  transform-origin: center left;
+}

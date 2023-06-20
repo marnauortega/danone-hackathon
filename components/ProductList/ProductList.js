@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import styles from "./ProductList.module.css";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 const ProductList = ({ products, profilePage }) => {
   return (
@@ -19,9 +20,11 @@ const ProductList = ({ products, profilePage }) => {
               height={product.image.asset.metadata.dimensions.height}
             />
             <div className={styles.productDetails}>
-              <p>{product.title}</p>
-              <p>{product.nutritionFacts.calories} Kcal</p>
-              <p>{product.environmentFacts.emissions}g of CO2</p>
+              <p className={styles.productTitle}>{product.title}</p>
+              <p className={styles.productData}>{product.nutritionFacts.calories} Kcal</p>
+              <ProgressBar calories={product.nutritionFacts.calories} />
+              <p className={styles.productData}>{product.environmentFacts.emissions}g of CO2</p>
+              <ProgressBar emissions={product.environmentFacts.emissions} />
             </div>
           </Link>
           <LikeButton slug={product.slug.current} filledDefault={profilePage} />

@@ -12,7 +12,6 @@ export const revalidate = 0;
 
 const Products = async ({ searchParams }) => {
   const searchEntries = Object.entries(searchParams);
-  console.log("params", searchParams);
 
   let products;
   if (searchEntries?.length > 0) {
