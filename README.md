@@ -1,3 +1,5 @@
+![Danone App](/public/screenshot.webp)
+
 <br/>
 
 A landing page and an app to calculate our dietary and environmental impact and to showcase Danone products. Built with [Next.js](https://nextjs.org/) for the Danone Hackathon organized by Nuwe.
@@ -46,7 +48,7 @@ I've used the new [App router](https://nextjs.org/docs/app/building-your-applica
 
 <br/>
 
-- Fully deployment to Vercel on the edge.
+- Fully deployed to Vercel on the edge.
 
 <br/><br/>
 
