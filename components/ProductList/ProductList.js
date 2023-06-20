@@ -10,7 +10,7 @@ const ProductList = ({ products, profilePage }) => {
   return (
     <div className={styles.productList}>
       {products.map((product) => (
-        <div className={styles.productWrapper}>
+        <div key={product._id} className={styles.productWrapper}>
           <Link href={product.slug.current}>
             <Image
               className={styles.productImage}

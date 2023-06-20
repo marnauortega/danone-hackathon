@@ -4,6 +4,7 @@ export async function getProduct(inputSlug) {
   const query = `
       query ($where: ProductFilter){
           allProduct( where: $where){
+              _id  
               title,
               slug {
                   current

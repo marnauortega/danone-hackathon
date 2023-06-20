@@ -37,8 +37,8 @@ const Product = async ({ params: { slug } }) => {
                 <div className={styles.data}>
                   <dt>Units</dt>
                   <dd className={styles.ballWrapper}>
-                    {range(product[0].units).map(() => (
-                      <div className={styles.ball}></div>
+                    {range(product[0].units).map((ball) => (
+                      <div key={ball} className={styles.ball}></div>
                     ))}
                   </dd>
                 </div>

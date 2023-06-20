@@ -12,7 +12,7 @@ const Profile = async () => {
   return (
     <>
       <Header />
-      <main className="marginTop">
+      <main className="marginTop marginBottom">
         <h1>Your favourite products</h1>
         <div className={styles.productsWrapper}>
           <Liked products={products} />

@@ -1,6 +1,3 @@
-// import { createClient, groq } from "next-sanity";
-// import clientConfig from "@/sanity/clientConfig";
-
 export async function sanityFetch({ query, variables = {} }) {
   const URL = `https://${process.env.NEXT_PUBLIC_PROJECT_ID}.${process.env.NEXT_PUBLIC_SANITY_URL}`;
 

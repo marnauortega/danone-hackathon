@@ -2,7 +2,6 @@ import UserProvider from "@/components/Providers/UserProvider";
 import { ReactLenisProvider } from "@/components/Providers/ReactLenisProvider";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Lenis from "@studio-freight/lenis";
 
 const inter = Inter({ subsets: ["latin"] });
 
